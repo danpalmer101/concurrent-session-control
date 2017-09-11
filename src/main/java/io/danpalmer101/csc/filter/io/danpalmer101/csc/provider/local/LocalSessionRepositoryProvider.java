@@ -11,6 +11,8 @@ import java.util.Set;
 /**
  * Default SessionRepositoryProvider implementation that restricts user to a single session
  * and stores all session information locally in memory.
+ *
+ * The userKey can be any object, but is uses as the key of a HashMap so should implement equals and hashCode correctly.
  */
 public class LocalSessionRepositoryProvider implements SessionRepositoryProvider<String, Object> {
 
