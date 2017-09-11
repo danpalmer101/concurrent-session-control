@@ -2,6 +2,8 @@
 
 Java filter for controlling concurrent sessions to a web application
 
+This has a similar function to [Spring Security's concurrency control](https://docs.spring.io/spring-security/site/docs/current/reference/html/session-mgmt.html), but does not rely on Spring or assume the use of HTTP sessions.
+
 ## Usage
 
 1. Include the `io.danpalmer101.csc.ConcurrentSessionFilter` class in your web application and apply to the relevant request paths.
