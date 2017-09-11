@@ -40,22 +40,22 @@ public class ConcurrentSessionFilter<S, U>  implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
 
-        S sessionKey = sessionState.getSessionKey(request, response);
-        U userKey = sessionState.getUserKey(request, response);
+        S sessionKey = this.sessionState.getSessionKey(request, response);
+        U userKey = this.sessionState.getUserKey(request, response);
 
-        if (sessionRepository.isSessionExpired(sessionKey)) {
+        if (this.sessionRepository.isSessionExpired(sessionKey)) {
             // If this session has been expired by another session, then handle it
             handleExpiredSession(request, response, filterChain);
         } else {
             // This session is not expired, expire concurrent sessions
-            boolean currentExpired = sessionRepository.expireAllOtherSessions(sessionKey, userKey);
+            boolean currentExpired = this.sessionRepository.expireAllOtherSessions(sessionKey, userKey);
 
             if (currentExpired) {
                 // This session was just expired, so handle it
                 handleExpiredSession(request, response, filterChain);
             } else {
                 // This session is still not expired, record the latest activity on this session
-                sessionRepository.recordSessionActivity(request, sessionKey, userKey);
+                this.sessionRepository.recordSessionActivity(request, sessionKey, userKey);
 
                 // Handle the session not being expire (e.g. just continue to application logic)
                 handleActiveSession(request, response, filterChain);
