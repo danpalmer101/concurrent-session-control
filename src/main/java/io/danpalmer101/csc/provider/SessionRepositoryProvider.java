@@ -1,4 +1,4 @@
-package io.danpalmer101.csc.filter.io.danpalmer101.csc.provider;
+package io.danpalmer101.csc.provider;
 
 import javax.servlet.http.HttpServletRequest;
 

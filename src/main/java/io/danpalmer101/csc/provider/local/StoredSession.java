@@ -1,4 +1,4 @@
-package io.danpalmer101.csc.filter.io.danpalmer101.csc.provider.local;
+package io.danpalmer101.csc.provider.local;
 
 /**
  * Basic metadata for a session

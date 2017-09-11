@@ -1,7 +1,7 @@
 package io.danpalmer101.csc.filter;
 
-import io.danpalmer101.csc.filter.io.danpalmer101.csc.provider.SessionRepositoryProvider;
-import io.danpalmer101.csc.filter.io.danpalmer101.csc.provider.SessionStateProvider;
+import io.danpalmer101.csc.provider.SessionRepositoryProvider;
+import io.danpalmer101.csc.provider.SessionStateProvider;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
